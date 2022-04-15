@@ -6,31 +6,23 @@ using System.Threading.Tasks;
 
 namespace Online_Store_Application
 {
-    class MenuRegisteredUser : Menu
+    class MenuRegisteredUser : IMenu
     {
-        protected IViewList _viewList;
-        protected ICreatOrder _creatOrder;
-        protected IOrderOrCancel _orderOrCancel;
-        protected IChangeStatus _changeStatus;
-        protected IOrdersHistory _ordersHistory;
-        protected IAccessInfo _accessInfo;
-        protected ILogOut _logOut;
+        protected IProductsCollections _productsCollections;
+        protected IUsersCollections _usersCollections;
+        protected IOrder _order;
+        protected IRegisteredUser _registeredUser;
 
-        public MenuRegisteredUser(ISearch search, IViewList viewList, ICreatOrder creatOrder, 
-            IOrderOrCancel orderOrCancel, IChangeStatus changeStatus, IOrdersHistory ordersHistory,
-            IAccessInfo accessInfo, ILogOut logOut) 
-            : base(search)
+        public MenuRegisteredUser(IProductsCollections productsCollections, IUsersCollections usersCollections,
+            IOrder order, IRegisteredUser registeredUser)
         {
-            _viewList = viewList;
-            _creatOrder = creatOrder;
-            _orderOrCancel = orderOrCancel;
-            _changeStatus = changeStatus;
-            _ordersHistory = ordersHistory;
-            _accessInfo = accessInfo;
-            _logOut = logOut;
+            _productsCollections = productsCollections;
+            _usersCollections = usersCollections;
+            _order = order;
+            _registeredUser = registeredUser;
         }
 
-        public override void MenuMessage()
+        public virtual void MenuMessage()
         {
             Console.Clear();
             Console.WriteLine("Поиск товара: 1 или Search ");
@@ -42,33 +34,33 @@ namespace Online_Store_Application
             Console.WriteLine("Изменение персональных данных: 7 или ChangePersonalInfo");
             Console.WriteLine("Выход с аккаунта: 8 или Logout");
         }
-        public override void SelectCommand(EnumCommands command)
+        public virtual void SelectCommand(EnumCommands command)
         {
             switch (command)
             {
+                case EnumCommands.Search:
+                    _productsCollections.Search();
+                    break;
                 case EnumCommands.ViewList:
-                    _viewList.ViewList();
+                    _productsCollections.ViewList();
                     break;
                 case EnumCommands.CreatOrder:
-                    _creatOrder.CreatOrder();
+                    _order.CreatOrder();
                     break;
                 case EnumCommands.OrderOrCancel:
-                    _orderOrCancel.OrderingOrCancellation();
+                    _registeredUser.OrderingOrCancellation();
                     break;
                 case EnumCommands.ChangeStatus:
-                    _changeStatus.ChangeStatus(new RegisteredUser("1","1")/*UNDONE*/);
+                    _order.ChangeStatus(new RegisteredUser("1","1")/*UNDONE*/);
                     break;
                 case EnumCommands.OrdersHistory:
-                    _ordersHistory.OrdersHistoryAndStatus();
+                    _registeredUser.OrdersHistoryAndStatus();
                     break;
                 case EnumCommands.ChangePersonalInfo:
-                    _accessInfo.ChangeInfo();
+                    _registeredUser.ChangeInfo();
                     break;
                 case EnumCommands.Logout:
-                    _logOut.SignOut();
-                    break;
-                default:
-                    base.SelectCommand(command);
+                    _registeredUser.SignOut();
                     break;
             }
         }

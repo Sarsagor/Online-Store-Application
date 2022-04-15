@@ -25,7 +25,7 @@ namespace Online_Store_Application
 
         private static void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<Menu>();
+            //services.AddTransient<Menu>();
             services.AddTransient<MenuGuest>();
             services.AddTransient<MenuRegisteredUser>();
             services.AddTransient<MenuAdministrator>();

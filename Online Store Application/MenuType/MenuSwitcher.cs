@@ -8,7 +8,7 @@ namespace Online_Store_Application
 {
     static class MenuSwitcher
     {
-        public static void Switch(Menu menu)
+        public static void Switch(IMenu menu)
         {
             menu.MenuMessage();
             do

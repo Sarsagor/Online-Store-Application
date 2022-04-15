@@ -63,7 +63,7 @@ namespace Online_Store_Application
         //UNDONE: пересмоьреть.
         #region Other
         //protected ProductsCollections products = new ProductsCollections();
-        public Menu Menu { get; protected set; }
+        public IMenu Menu { get; protected set; }
         public MessageTable message = new();
         #endregion
 

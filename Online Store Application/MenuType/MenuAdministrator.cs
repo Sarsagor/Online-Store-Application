@@ -8,16 +8,12 @@ namespace Online_Store_Application
 {
     sealed class MenuAdministrator : MenuRegisteredUser
     {
-        private IAddProduct _addProduct;
-        private IChangeUserInformation _changeUserInformation;
-        public MenuAdministrator(ISearch search, IViewList viewList, ICreatOrder creatOrder, 
-            IOrderOrCancel orderOrCancel, IChangeStatus changeStatus, IOrdersHistory ordersHistory,
-            IAccessInfo accessInfo, ILogOut logOut, IAddProduct addProduct,IChangeUserInformation changeUserInformation) 
-            : base(search, viewList, creatOrder, orderOrCancel, changeStatus, 
-                  ordersHistory, accessInfo, logOut)
+        private IAccessInfo _accessInfo;
+        public MenuAdministrator(IProductsCollections productsCollections, IUsersCollections usersCollections,
+            IOrder order, IRegisteredUser registeredUser, IAccessInfo accessInfo) 
+            :base(productsCollections, usersCollections, order, registeredUser)
         {
-            _addProduct = addProduct;
-            _changeUserInformation = changeUserInformation;
+            _accessInfo = accessInfo;
         }
 
         public sealed override void MenuMessage()
@@ -32,13 +28,13 @@ namespace Online_Store_Application
             switch (command)
             {
                 case EnumCommands.AddNewProduct:
-                    _addProduct.AddProduct();
+                    _productsCollections.AddProduct();
                     break;
                 case EnumCommands.ChangeProductInfo:
                     _accessInfo.ChangeInfo(); //FIXME: именно продукт.
                     break;
                 case EnumCommands.ChangeUserInfo:
-                    _changeUserInformation.ChangeUserInformation();
+                    _usersCollections.ChangeUserInformation();
                     break;
                 default:
                     base.SelectCommand(command);

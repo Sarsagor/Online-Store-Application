@@ -8,35 +8,34 @@ using System.Threading.Tasks;
 
 namespace Online_Store_Application
 {
-    class MenuGuest : Menu
+    class MenuGuest : IMenu
     {
-        private ILogin _login;
-        private IRegistrator _registrator;
+        private IProductsCollections _productsCollections;
+        private IUsersCollections _usersCollections;
 
-        public MenuGuest(ISearch search, ILogin login, IRegistrator registrator) 
-            : base(search)
+        public MenuGuest(IProductsCollections productsCollections, IUsersCollections usersCollections)
         {
-            _login = login;
-            _registrator = registrator;
+            _productsCollections = productsCollections;
+            _usersCollections = usersCollections;
         }
 
-        public override void SelectCommand(EnumCommands command)
+        public void SelectCommand(EnumCommands command)
         {
             switch (command)
             {
+                case EnumCommands.Search:
+                    _productsCollections.Search();
+                    break;
                 case EnumCommands.SignIn:
-                    _login.Login();
+                    _usersCollections.Login();
                     break;
                 case EnumCommands.Registration:
-                    _registrator.Registration();
-                    break;
-                default:
-                    base.SelectCommand(command);
+                    _usersCollections.Registration();
                     break;
             }
         }
 
-        public override void MenuMessage()
+        public void MenuMessage()
         {
             Console.WriteLine("Поиска товара: 1 или Search");
             Console.WriteLine("Входа в свой аккаунт: 2 или SignIn");
@@ -45,7 +44,7 @@ namespace Online_Store_Application
         }
         public void Run()
         {
-            MenuSwitcher.Switch(this);
+            //MenuSwitcher.Switch(this);
         }
     }
 }
