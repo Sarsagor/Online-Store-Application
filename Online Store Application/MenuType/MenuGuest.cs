@@ -44,7 +44,7 @@ namespace Online_Store_Application
         }
         public void Run()
         {
-            //MenuSwitcher.Switch(this);
+            MenuSwitcher.Switch(this);
         }
     }
 }
