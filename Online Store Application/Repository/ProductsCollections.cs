@@ -17,7 +17,7 @@ namespace Online_Store_Application
         #region Constructors
         //public ProductsCollections()
         //    : this(new ProductsList()) { }
-        private ProductsCollections(IRepository<Product> repository)
+        public ProductsCollections(IRepository<Product> repository)
         {
             _repository = repository;
             GetRepository();
