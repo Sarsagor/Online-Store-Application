@@ -11,12 +11,7 @@ namespace Online_Store_Application
         public static List<Product> products;
         private IRepository<Product> _repository;
 
-        //UNDONE: MessageTable messageTable = new MessageTable();
-
-        //UNDONE: удалить базовый конструктор.
         #region Constructors
-        //public ProductsCollections()
-        //    : this(new ProductsList()) { }
         public ProductsCollections(IRepository<Product> repository)
         {
             _repository = repository;

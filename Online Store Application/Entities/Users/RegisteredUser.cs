@@ -55,8 +55,8 @@ namespace Online_Store_Application
             Gender = Gender.unknown;
             Balance = balance;
             Orders = new List<Order>();
-
-            //FIXME: Menu = new MenuRegisteredUser(this);
+            //FIXME: FIX creating MENU object, MENU constructor have DI options // 1st: take MENU object from creating users
+            //Menu = new MenuRegisteredUser();
         }
         #endregion
 

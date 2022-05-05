@@ -11,10 +11,7 @@ namespace Online_Store_Application
         private static List<RegisteredUser> users;
         private IRepository<RegisteredUser> _repository;
 
-        //UNDONE: Удалить базовый конструктор.
         #region Constructor
-    //    public UsersCollections()
-    //: this(new UsersList()) { }
         public UsersCollections(IRepository<RegisteredUser> repository)
         {
             _repository = repository;

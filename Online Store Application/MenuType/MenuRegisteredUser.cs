@@ -51,7 +51,9 @@ namespace Online_Store_Application
                     _registeredUser.OrderingOrCancellation();
                     break;
                 case EnumCommands.ChangeStatus:
-                    _order.ChangeStatus(new RegisteredUser("1","1")/*UNDONE*/);
+                    _order.ChangeStatus(new RegisteredUser("1","1")/*UNDONE*/); // перекинуть исполнение заказа, на пользователя.
+                    //Перекинуть в MenuRegisteredUser метод ChangeStatus на метод RegisteredUser - ChangeOrderStatus,
+                    //а так же добавить в класс RegisteredUser ссылку на метод класса Order - ChangeStatus. 
                     break;
                 case EnumCommands.OrdersHistory:
                     _registeredUser.OrdersHistoryAndStatus();

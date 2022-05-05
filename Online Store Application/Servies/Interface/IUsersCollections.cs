@@ -7,6 +7,5 @@ using System.Threading.Tasks;
 namespace Online_Store_Application
 {
     internal interface IUsersCollections : ILogin, IRegistrator, IChangeUserInformation
-    {
-    }
+    {}
 }

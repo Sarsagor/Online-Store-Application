@@ -7,6 +7,7 @@ namespace Online_Store_Application
     {
         static void Main(string[] args)
         {
+            #region junk
             //ProductsCollections productsCollections = new ProductsCollections();
             //UsersCollections usersCollections = new UsersCollections();
 
@@ -16,12 +17,10 @@ namespace Online_Store_Application
 
 
             //ServiceExtensions.RegisterService();
-
             //Menu menu = new MenuGuest();
-            //MenuSwitcher.Switch(menu);
-            
+            //MenuSwitcher.Switch(menu); 
+            #endregion
             ServiceExtensions.BuildServices();
-
         }
     }
 }
