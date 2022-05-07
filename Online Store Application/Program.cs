@@ -20,6 +20,7 @@ namespace Online_Store_Application
             //Menu menu = new MenuGuest();
             //MenuSwitcher.Switch(menu); 
             #endregion
+
             ServiceExtensions.BuildServices();
         }
     }

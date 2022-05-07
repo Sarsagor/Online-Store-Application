@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Test.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="ConsoleTables" Version="2.4.2" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
   </ItemGroup>

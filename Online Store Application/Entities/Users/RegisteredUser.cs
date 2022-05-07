@@ -60,7 +60,7 @@ namespace Online_Store_Application
         }
         #endregion
 
-        //UNDONE: пересмоьреть.
+        //UNDONE: пересмотреть.
         #region Other
         //protected ProductsCollections products = new ProductsCollections();
         public IMenu Menu { get; protected set; }
@@ -202,7 +202,7 @@ namespace Online_Store_Application
         }
 
         //FIXME: пока так - ChangeOrderStatus()
-        public virtual void ChangeOrderStatus()
+        public void ChangeOrderStatus()
         {
             OrdersHistoryAndStatus();
 
@@ -252,14 +252,10 @@ namespace Online_Store_Application
         }
 
 
-
-
-
-        //FIXME: способ отображения списка, возращать List??? - OrdersHistoryAndStatus().
+        //FIXME: способ отображения списка??? - OrdersHistoryAndStatus().
         public List<Order> OrdersHistoryAndStatus()
         {
             return Orders;
-            //message.ShowMessage(Orders, "№:", "Статус:", "Дата заказа:", "Количество товаров:");
         }
 
         //FIXME: SignOut()

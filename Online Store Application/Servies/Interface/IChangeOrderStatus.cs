@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Online_Store_Application
 {
-    internal interface IRegisteredUser : IOrderOrCancel, IOrdersHistory,
-        IAccessInfo, ILogOut, IChangeOrderStatus
+    internal interface IChangeOrderStatus
     {
+        public void ChangeOrderStatus();
     }
 }
