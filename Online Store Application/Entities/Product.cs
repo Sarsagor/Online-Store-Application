@@ -14,7 +14,7 @@ namespace Online_Store_Application
         eat
     }
     
-    class Product : IAccessInfo// IChangeProductInfo, IGetInfo
+    class Product : IAccessInfo
     {
         #region ProductInfo
         public string Name { get; private set; }
@@ -131,6 +131,6 @@ namespace Online_Store_Application
         {
 
             return new string[] { Name, Category.ToString(), Cost.ToString(), Description };
-        }        
+        }
     }
 }

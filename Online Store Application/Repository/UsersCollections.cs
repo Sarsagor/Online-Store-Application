@@ -87,7 +87,7 @@ namespace Online_Store_Application
                 {
                     if (user.Password == password)
                     {
-                        _menuSwitcher.RegisterMenu(user);
+                        _menuSwitcher.RegisterUser(user);
                     }
                     else
                     {

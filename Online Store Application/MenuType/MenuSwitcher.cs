@@ -9,18 +9,25 @@ namespace Online_Store_Application
     public class MenuSwitcher
     {
         private readonly MenuResolver _menuResolver;
+
         private IMenu _menu;
+        private User _user;
+
         public MenuSwitcher(MenuResolver menuResolver)
         {
             _menuResolver = menuResolver;
         }
-
-        public void RegisterMenu(User user)
+        
+        public void RegisterUser(User user)
         {
-            _menu = _menuResolver(user);
+            _user = user;
+            RegisterMenu();
+        }
+        private void RegisterMenu()
+        {
+            _menu = _menuResolver(_user);
             InteractionWithMenu();
         }
-
         private void InteractionWithMenu()
         {
             _menu.MenuMessage();

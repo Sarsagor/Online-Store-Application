@@ -9,6 +9,10 @@ namespace Online_Store_Application
 {
     sealed class Administrator : RegisteredUser
     {
+        public Administrator()
+        {
+
+        }
         public Administrator(string login, string password) 
             : base(login, password)
         {

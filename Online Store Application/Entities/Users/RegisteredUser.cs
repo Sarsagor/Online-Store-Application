@@ -45,6 +45,10 @@ namespace Online_Store_Application
         #endregion
 
         #region Constructor
+        public RegisteredUser()
+        {
+
+        }
         public RegisteredUser(string login, string password)
             : this(login, password, 0) { }
         public RegisteredUser(string login, string password, decimal balance)
@@ -60,7 +64,7 @@ namespace Online_Store_Application
 
         //UNDONE: пересмотреть.
         #region OtherInfo
-        private readonly MenuSwitcher _menuSwitcher;
+        //private readonly MenuSwitcher _menuSwitcher;
         #endregion
 
         //FIXME: Заменить case string на Enum - ChangePersonalInfo()???
@@ -247,7 +251,6 @@ namespace Online_Store_Application
             }
         }
 
-
         //FIXME: способ отображения списка??? - OrdersHistoryAndStatus().
         public List<Order> OrdersHistoryAndStatus()
         {
@@ -257,8 +260,7 @@ namespace Online_Store_Application
         //FIXME: SignOut()
         public void SignOut()
         {
-            //MenuToUser.DoSomething(default);
-            _menuSwitcher.RegisterMenu(default);
+            //_menuSwitcher.RegisterUser(default);
         }
     }
 }

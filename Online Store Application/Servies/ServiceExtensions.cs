@@ -20,8 +20,12 @@ namespace Online_Store_Application
             collection.AddTransient<IOrder, Order>();
             collection.AddTransient<IAccessInfo, Product>();
             collection.AddTransient<IRegisteredUser, RegisteredUser>();
+            //collection.AddTransient<IRegisteredUser, Administrator>();
+
 
             collection.AddTransient<IMenu, MenuGuest>();
+            //collection.AddTransient<IMenu, MenuRegisteredUser>();
+            //collection.AddTransient<IMenu, MenuAdministrator>();
         }
 
         private static void ConfigureServices(IServiceCollection services)
@@ -46,7 +50,7 @@ namespace Online_Store_Application
                     default:
                         return serviceProvider.GetService<MenuGuest>();
                 }
-            });
+            });            
         }
 
         public static void BuildServices()
@@ -55,7 +59,7 @@ namespace Online_Store_Application
             RegisterService(services);
             ConfigureServices(services);
             var serviceProvider = services.BuildServiceProvider();
-            serviceProvider.GetService<MenuSwitcher>().RegisterMenu(default);
+            serviceProvider.GetService<MenuSwitcher>().RegisterUser(default);
         }
     }
 }
