@@ -10,8 +10,7 @@ namespace Online_Store_Application
     public static class ServiceExtensions
     {
         private static void RegisterService(IServiceCollection collection)
-        {
-            
+        {            
             collection.AddTransient<IRepository<Product>, ProductsList>();
             collection.AddTransient<IRepository<RegisteredUser>, UsersList>();
 
@@ -21,6 +20,8 @@ namespace Online_Store_Application
             collection.AddTransient<IOrder, Order>();
             collection.AddTransient<IAccessInfo, Product>();
             collection.AddTransient<IRegisteredUser, RegisteredUser>();
+
+            collection.AddTransient<IMenu, MenuGuest>();
         }
 
         private static void ConfigureServices(IServiceCollection services)
@@ -31,6 +32,21 @@ namespace Online_Store_Application
             services.AddTransient<MenuGuest>();
             services.AddTransient<MenuRegisteredUser>();
             services.AddTransient<MenuAdministrator>();
+
+            services.AddSingleton<MenuSwitcher>();
+
+            services.AddTransient<MenuResolver>(serviceProvider => key =>
+            {
+                switch (key)
+                {
+                    case Administrator:
+                        return serviceProvider.GetService<MenuAdministrator>();
+                    case RegisteredUser:
+                        return serviceProvider.GetService<MenuRegisteredUser>();
+                    default:
+                        return serviceProvider.GetService<MenuGuest>();
+                }
+            });
         }
 
         public static void BuildServices()
@@ -39,7 +55,7 @@ namespace Online_Store_Application
             RegisterService(services);
             ConfigureServices(services);
             var serviceProvider = services.BuildServiceProvider();
-            serviceProvider.GetService<MenuGuest>().Run();
+            serviceProvider.GetService<MenuSwitcher>().RegisterMenu(default);
         }
     }
 }

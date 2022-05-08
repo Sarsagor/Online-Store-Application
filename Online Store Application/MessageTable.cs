@@ -7,7 +7,7 @@ using ConsoleTables;
 
 namespace Online_Store_Application
 {
-    class MessageTable
+    static class MessageTable
     {
         public static void ShowListMassage<T>(List<T> list)
         {

@@ -10,8 +10,8 @@ namespace Online_Store_Application
 {
     class MenuGuest : IMenu
     {
-        private IProductsCollections _productsCollections;
-        private IUsersCollections _usersCollections;
+        private readonly IProductsCollections _productsCollections;
+        private readonly IUsersCollections _usersCollections;
 
         public MenuGuest(IProductsCollections productsCollections, IUsersCollections usersCollections)
         {
@@ -41,10 +41,6 @@ namespace Online_Store_Application
             Console.WriteLine("Входа в свой аккаунт: 2 или SignIn");
             Console.WriteLine("Регестрации: 3 или Registration");
             Console.WriteLine("Выход/завершение: 20 или Exit");
-        }
-        public void Run()
-        {
-            MenuSwitcher.Switch(this);
         }
     }
 }

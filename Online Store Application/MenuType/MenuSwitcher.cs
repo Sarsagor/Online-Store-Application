@@ -6,18 +6,31 @@ using System.Threading.Tasks;
 
 namespace Online_Store_Application
 {
-    static class MenuSwitcher
+    public class MenuSwitcher
     {
-        public static void Switch(IMenu menu)
+        private readonly MenuResolver _menuResolver;
+        private IMenu _menu;
+        public MenuSwitcher(MenuResolver menuResolver)
         {
-            menu.MenuMessage();
+            _menuResolver = menuResolver;
+        }
+
+        public void RegisterMenu(User user)
+        {
+            _menu = _menuResolver(user);
+            InteractionWithMenu();
+        }
+
+        private void InteractionWithMenu()
+        {
+            _menu.MenuMessage();
             do
             {
                 Console.Write("\nВведите вашу команду: ");
-                bool isCommand = Enum.TryParse(Console.ReadLine(), out EnumCommands command);
+                bool isCommand = Enum.TryParse(Console.ReadLine(), true, out EnumCommands command);
                 if (isCommand)
-                {                   
-                    menu.SelectCommand(command);
+                {
+                    _menu.SelectCommand(command);
                 }
                 else
                 {

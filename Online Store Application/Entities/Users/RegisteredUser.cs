@@ -55,16 +55,12 @@ namespace Online_Store_Application
             Gender = Gender.unknown;
             Balance = balance;
             Orders = new List<Order>();
-            //FIXME: FIX creating MENU object, MENU constructor have DI options // 1st: take MENU object from creating users
-            //Menu = new MenuRegisteredUser();
         }
         #endregion
 
         //UNDONE: пересмотреть.
-        #region Other
-        //protected ProductsCollections products = new ProductsCollections();
-        public IMenu Menu { get; protected set; }
-        public MessageTable message = new();
+        #region OtherInfo
+        private readonly MenuSwitcher _menuSwitcher;
         #endregion
 
         //FIXME: Заменить case string на Enum - ChangePersonalInfo()???
@@ -261,7 +257,8 @@ namespace Online_Store_Application
         //FIXME: SignOut()
         public void SignOut()
         {
-            //MenuSwitcher.Switch(new MenuGuest());
+            //MenuToUser.DoSomething(default);
+            _menuSwitcher.RegisterMenu(default);
         }
     }
 }

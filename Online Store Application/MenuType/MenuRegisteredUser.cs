@@ -8,10 +8,10 @@ namespace Online_Store_Application
 {
     class MenuRegisteredUser : IMenu
     {
-        protected IProductsCollections _productsCollections;
-        protected IUsersCollections _usersCollections;
-        protected IOrder _order;
-        protected IRegisteredUser _registeredUser;
+        protected readonly IProductsCollections _productsCollections;
+        protected readonly IUsersCollections _usersCollections;
+        protected readonly IOrder _order;
+        protected readonly IRegisteredUser _registeredUser;
 
         public MenuRegisteredUser(IProductsCollections productsCollections, IUsersCollections usersCollections,
             IOrder order, IRegisteredUser registeredUser)
@@ -52,9 +52,6 @@ namespace Online_Store_Application
                     break;
                 case EnumCommands.ChangeStatus:
                     _registeredUser.ChangeOrderStatus();
-                    //_order.ChangeStatus(new RegisteredUser("1","1")/*UNDONE*/); // перекинуть исполнение заказа, на пользователя.
-                    //Перекинуть в MenuRegisteredUser метод ChangeStatus на метод RegisteredUser - ChangeOrderStatus,
-                    //а так же добавить в класс RegisteredUser ссылку на метод класса Order - ChangeStatus. 
                     break;
                 case EnumCommands.OrdersHistory:
                     _registeredUser.OrdersHistoryAndStatus();

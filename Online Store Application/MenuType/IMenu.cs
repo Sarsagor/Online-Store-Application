@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Online_Store_Application
 {
-    internal interface IMenu
+    public delegate IMenu MenuResolver(User user);
+
+    public interface IMenu
     {
         public void SelectCommand(EnumCommands command);
         public void MenuMessage();

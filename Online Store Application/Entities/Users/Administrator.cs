@@ -12,7 +12,6 @@ namespace Online_Store_Application
         public Administrator(string login, string password) 
             : base(login, password)
         {
-            //FIXME: Menu = new MenuAdministrator(this);
         }
     }
 }

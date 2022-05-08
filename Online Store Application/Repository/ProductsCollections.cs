@@ -9,7 +9,7 @@ namespace Online_Store_Application
     class ProductsCollections : IProductsCollections
     {
         public static List<Product> products;
-        private IRepository<Product> _repository;
+        private readonly IRepository<Product> _repository;
 
         #region Constructors
         public ProductsCollections(IRepository<Product> repository)
@@ -38,8 +38,8 @@ namespace Online_Store_Application
         //FIXME: Изменить способ отображения списка?
         public List<Product> ViewList()
         {
+            MessageTable.ShowListMassage(products);
             return products;
-            //UNDONE: messageTable.ShowMessage(products, "Назване:", "Категория:", "Цена:", "Описание:");
         }
 
         //FIXME: Расширить метод Search, добавить дополнительный поиск по критурию, сделать сортировку.
@@ -48,24 +48,8 @@ namespace Online_Store_Application
             Console.Write("Введите название продука: ");
             string name = Console.ReadLine();
 
+            MessageTable.ShowListMassage(products.Where(n => n.Name.ToLower().StartsWith(name.ToLower())).ToList());
             return products.Where(n => n.Name.ToLower().StartsWith(name.ToLower())).ToList();
-            //UNDONE: старый код
-            //if (!string.IsNullOrWhiteSpace(name))
-            //{
-            //    var searchList = products.Where(n => n.Name.ToLower().StartsWith(name.ToLower())).ToList();
-            //    if (searchList.Any())
-            //    {
-            //        messageTable.ShowMessage(searchList, "Назване:", "Категория:", "Цена:", "Описание:");
-            //    }
-            //    else
-            //    {
-            //        Console.WriteLine("Таких продуктов нету.");
-            //    }
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Название введенно не корректно.");
-            //}
         }
         #endregion
 

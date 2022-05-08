@@ -9,12 +9,14 @@ namespace Online_Store_Application
     class UsersCollections : IUsersCollections
     {
         private static List<RegisteredUser> users;
-        private IRepository<RegisteredUser> _repository;
+        private readonly IRepository<RegisteredUser> _repository;
+        private readonly MenuSwitcher _menuSwitcher;
 
         #region Constructor
-        public UsersCollections(IRepository<RegisteredUser> repository)
+        public UsersCollections(IRepository<RegisteredUser> repository, MenuSwitcher menuSwitcher)
         {
             _repository = repository;
+            _menuSwitcher = menuSwitcher;
             GetRepository();
         } 
         #endregion
@@ -39,10 +41,10 @@ namespace Online_Store_Application
         #region AnotherClass?
         private (string, string) InputLoginAndPassword()
         {
-            Console.Write("Придумайте и введите логин:");
+            Console.Write("Придумайте и введите логин: ");
             string login = CheckValue();
 
-            Console.Write("Придумайте и введите пароль:");
+            Console.Write("Придумайте и введите пароль: ");
             string password = CheckValue();
 
             return (login, password);
@@ -85,7 +87,7 @@ namespace Online_Store_Application
                 {
                     if (user.Password == password)
                     {
-                        MenuSwitcher.Switch(user.Menu);
+                        _menuSwitcher.RegisterMenu(user);
                     }
                     else
                     {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Online_Store_Application
 {
-    internal class User
+    public class User
     {
     }
 }

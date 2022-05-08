@@ -8,7 +8,7 @@ namespace Online_Store_Application
 {
     sealed class MenuAdministrator : MenuRegisteredUser
     {
-        private IAccessInfo _accessInfo;
+        private readonly IAccessInfo _accessInfo;
         public MenuAdministrator(IProductsCollections productsCollections, IUsersCollections usersCollections,
             IOrder order, IRegisteredUser registeredUser, IAccessInfo accessInfo) 
             :base(productsCollections, usersCollections, order, registeredUser)
@@ -31,7 +31,7 @@ namespace Online_Store_Application
                     _productsCollections.AddProduct();
                     break;
                 case EnumCommands.ChangeProductInfo:
-                    _accessInfo.ChangeInfo(); //FIXME: именно продукт.
+                    _accessInfo.ChangeInfo();
                     break;
                 case EnumCommands.ChangeUserInfo:
                     _usersCollections.ChangeUserInformation();

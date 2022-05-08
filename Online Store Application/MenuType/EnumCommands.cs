@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Online_Store_Application
 {
-    enum EnumCommands
+    public enum EnumCommands
     {
         Search = 1,
         SignIn,        

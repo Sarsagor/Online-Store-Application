@@ -23,7 +23,7 @@ namespace Online_Store_Application
                     break;
                     //another case
             }
-            MenuSwitcher.Switch(menuToSwitch);
+            //MenuSwitcher.Switch(menuToSwitch);
         }
     }
 
