@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ConsoleTables;
 
 namespace Online_Store_Application
 {
-    sealed class Administrator : RegisteredUser
+    enum OrderStatus
     {
-        public Administrator(string login, string password) 
-            : base(login, password){}
+        New,
+        Received,
+        CancledByUser,
+        PaymentReceived = 2,
+        Sent,
+        Completed,
+        CancledByAdmin
     }
 }

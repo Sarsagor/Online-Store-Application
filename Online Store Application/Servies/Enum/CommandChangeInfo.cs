@@ -6,5 +6,11 @@ using System.Threading.Tasks;
 
 namespace Online_Store_Application
 {
-    class Guest : User{}
+    enum CommandChangeInfo
+    {
+        Name = 1,
+        Age,
+        Gender,
+        Balance
+    }
 }

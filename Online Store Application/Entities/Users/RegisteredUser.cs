@@ -8,25 +8,6 @@ using ConsoleTables;
 
 namespace Online_Store_Application
 {
-    enum Gender
-    {
-        unknown,
-        male,
-        female
-    }
-    enum CommandChangeInfo
-    {
-        Name=1,
-        Age,
-        Gender,
-        Balance
-    }
-    enum EnumOrdering
-    {
-        Order,
-        Cancel
-    }
-
     class RegisteredUser : User, IRegisteredUser
     {
         #region LoginInfo

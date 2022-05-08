@@ -7,18 +7,6 @@ using System.Threading.Tasks;
 
 namespace Online_Store_Application
 {
-    //UNDONE: Насколько плохо такое расположение.
-    enum OrderStatus
-    {
-        New,
-        Received,
-        CancledByUser,
-        PaymentReceived = 2,
-        Sent,
-        Completed,
-        CancledByAdmin
-    }
-
     class Order : IOrder
     {
         #region OrderInfo
@@ -121,8 +109,6 @@ namespace Online_Store_Application
         {
            return new string[] { Status.ToString(), DateCreate.ToString() };
         }
-
-
 
         //FIXME: не указан/неизвестен способ показала товара - CreatOrder
         public void CreatOrder()

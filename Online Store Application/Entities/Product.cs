@@ -6,14 +6,7 @@ using System.Threading.Tasks;
 using ConsoleTables;
 
 namespace Online_Store_Application
-{
-    //UNDONE: Насколько плохо такое расположение?
-    enum Categories
-    {
-        drink = 1,
-        eat
-    }
-    
+{    
     class Product : IAccessInfo
     {
         #region ProductInfo
@@ -129,7 +122,6 @@ namespace Online_Store_Application
 
         public string[] GetInfo()
         {
-
             return new string[] { Name, Category.ToString(), Cost.ToString(), Description };
         }
     }

@@ -6,5 +6,10 @@ using System.Threading.Tasks;
 
 namespace Online_Store_Application
 {
-    class Guest : User{}
+    enum Gender
+    {
+        unknown,
+        male,
+        female
+    }
 }

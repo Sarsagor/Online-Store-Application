@@ -6,5 +6,9 @@ using System.Threading.Tasks;
 
 namespace Online_Store_Application
 {
-    class Guest : User{}
+    enum Categories
+    {
+        drink = 1,
+        eat
+    }
 }
